@@ -1,7 +1,10 @@
-import mongoose from 'mongoose';
+const mongoose=require('mongoose');
 
 const connect = async () => {
-    await mongoose.connect('mongodb://localhost/twitter_Dev');
+    await mongoose
+    .connect("mongodb://127.0.0.1:27017/twitter_Dev")
+    .then(() => console.log("MongoDB Connected"))
+    .catch((err) => console.log("Mongo Error",err));
 }
 
-modules.exports=connect;
+module.exports=connect;
