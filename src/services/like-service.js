@@ -1,4 +1,5 @@
 import { LikeRespository, TweetRepository } from '../repository/index.js';
+import Tweet from '../models/tweet.js';
 
 class LikeService {
     constructor() {
@@ -24,7 +25,7 @@ class LikeService {
         if(exists) {
             likeable.likes.pull(exists.id);
             await likeable.save();
-            await exists.remove();
+            await exists.deleteOne();
             var isAdded = false;
 
         } else {

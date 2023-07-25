@@ -3,6 +3,8 @@ import bodyParser from 'body-parser';
 import {connect} from './config/database.js';
 
 import apiRoutes from './routes/index.js';
+// import {UserRepository} from './repository/index.js';
+
 
 const app=express();
 app.use(bodyParser.json());
@@ -14,4 +16,11 @@ app.listen(3000, async () => {
     console.log('server started');
     await connect();
     console.log('Mongo db connected');
+
+    // const userRepo=new UserRepository();
+    // userRepo.create({
+    //     email: 'a@b.com',
+    //     password: '123456',
+    //     name: 'user1'
+    // })
 });
